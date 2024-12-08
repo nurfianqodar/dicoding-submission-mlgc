@@ -1,6 +1,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
-
+const { predictRouter } = require("./routers/predictRouters.cjs")
+const {gcBucket} = require("./utils/gcloud")
 
 // Load env
 dotenv.config()
@@ -11,6 +12,9 @@ const APP_PORT = process.env["APP_PORT"]
 
 // Initialize app
 const app = express()
+
+// Router
+app.use(predictRouter)
 
 
 // Run app
