@@ -1,8 +1,12 @@
 const express = require("express")
+const dotenv = require("dotenv")
 
+
+// Load env
+dotenv.config()
 
 // Get port environment variable
-const APP_PORT = process.env["APP_PORT"] | 8000
+const APP_PORT = process.env["APP_PORT"]
 
 
 // Initialize app

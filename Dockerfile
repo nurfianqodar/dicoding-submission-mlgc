@@ -9,4 +9,4 @@ EXPOSE 3000
 ENV APP_PORT=3000
 ENV MODEL_URL="https://storage.googleapis.com/submissionmlgc-nurfianqodar-bucket/models/model.json"
 
-RUN node index.js
+CMD [ "node", "index.js" ] 
