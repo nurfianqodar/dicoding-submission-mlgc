@@ -5,13 +5,17 @@ const gcStorage = new Storage();
 const gcBucket = new Bucket(gcStorage, 'submissionmlgc-nurfianqodar-bucket', {
 	userProject: 'submissionmlgc-nurfianqodar',
 });
-const gcFirestore = new Firestore({});
+const gcFirestore = new Firestore({
+	databaseId: 'submissionmlgc-nurfianqodar-db ',
+	projectId: 'submissionmlgc-nurfianqodar',
+});
 
 const downloadFromGCS = async (filePath, destination) => {
 	try {
 		await gcBucket.file(filePath).download({ destination });
 		console.log(`success download ${filePath} to ${dest}`);
 	} catch (err) {
+		console.error(err.message);
 		console.error(err);
 	}
 };

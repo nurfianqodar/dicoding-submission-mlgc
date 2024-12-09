@@ -19,8 +19,12 @@ class PredictionResult {
 	 */
 	constructor(prob) {
 		this.id = uuid();
-		this.result = 'Cancer' ? 'Non-Cancer' : prob > 0.5;
-		this.suggestion = '' ? '' : prob > 0.5;
+		this.result = prob > 0.5 ? 'Cancer' : 'Non-Cancer';
+		this.suggestion =
+			prob > 0.5
+				? 'Segera periksa ke dokter!'
+				: 'Penyakit kanker tidak terdeteksi.';
+
 		this.createdAt = new Date().toISOString();
 	}
 }
