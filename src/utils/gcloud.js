@@ -7,7 +7,17 @@ const gcBucket = new Bucket(gcStorage, 'submissionmlgc-nurfianqodar-bucket', {
 });
 const gcFirestore = new Firestore({});
 
+const downloadFromGCS = async (filePath, destination) => {
+	try {
+		await gcBucket.file(filePath).download({ destination });
+		console.log(`success download ${filePath} to ${dest}`);
+	} catch (err) {
+		console.error(err);
+	}
+};
+
 module.exports = {
 	gcBucket,
 	gcFirestore,
+	downloadFromGCS,
 };
